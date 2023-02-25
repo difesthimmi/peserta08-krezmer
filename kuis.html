@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <link rel="stylesheet" href="/css/quiz.css">
+
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="/assets/logo.png" alt="logo" width="170px" height="80px">
+        </a>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li>
+                    <a href="index.html" class="item">Beranda</a>
+                    <a href="task.html" class="item">Managemen Tugas</a>
+                    <a href="#" class="item">Kuis</a>
+                    <a href="login.html" class="loginbtn">
+                        <button class="btnLogin-popup">Login</button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="all-wrap">
+        <div class="wrapper">
+            <div class="container">
+                <form class="myform" name="id" onsubmit="submitted(event)">
+                    <h4 class="judul">
+                        Dolan Quiz
+                    </h4>
+                    <div class="input-box">
+                        <span class="icon">
+                            <ion-icon name="person"></ion-icon>
+                        </span>
+                        <input type="text" id="name" required>
+                        <label for="name">Name Here</label>
+                        <p class="center">
+                            <button type="submit" class="btn" onclick="this.style.display='none'">
+                                Confirm
+                            </button>
+                        </p>
+                    </div>
+                    <div class="rules-box">
+                        <p class="rules">QUIZ RULES</p>
+                        <p class="item">1. YOU CANNOT SKIP ANY QUESTIONS.</p>
+                        <p class="item">2. YOU CANNOT GOTTO PREVIOUS QUESTION.</p>
+                        <p class="item">3. TRY ATTEMPING ALL WITHOUT CHEATING.</p>
+                    </div>
+                    <p class="center"><a href="kuis_start.html" class="btn blue">Let's Start</a></p>
+                </form>
+            </div>
+        </div>
+    </div>
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script>
+        function submitted(e) {
+            e.preventDefault();
+
+            let namee = document.forms["id"]["name"].value;
+            sessionStorage.setItem("name", namee);
+        }
+    </script>
+
+</body>
+
+</html>

@@ -1,0 +1,758 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+    background: #0d0124;
+}
+
+
+header {
+    position: fixed;
+    width: 100%;
+    padding: 15px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99;
+    
+}
+
+.hamburger {
+    display: none;
+}
+
+.navigation {
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.navigation .item {
+    position: relative;
+    font-size: 1.1em;
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    margin-left: 40px;
+}
+
+.navigation li {
+    list-style: none;
+}
+
+.navigation .item::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    width: 100%;
+    height: 3px;
+    background: white;
+    border-radius: 5px;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: transform .5s;
+}
+
+.navigation .item:hover::after {
+    transform-origin: left;
+    transform: scaleX(1);
+}
+
+.navigation .btnLogin-popup {
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    margin-left: 40px;
+    transition: .5s;
+}
+
+.navigation .btnLogin-popup:hover {
+    background: white;
+    color: #162938;
+}
+
+.login-page {
+    display: none;
+    margin-top: 120px;
+    position: fixed;
+    z-index: 1;
+    justify-content: center;
+    align-items: center;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    height: 440px;
+    background: transparent;
+    border: 2px solid white;
+    border-radius: 20px;
+    backdrop-filter: blur(20px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    transition: transform .5s ease, height .2s ease;
+}
+
+.wrapper.active {
+    height: 520px;
+}
+
+.wrapper .form-box {
+    width: 100%;
+    padding: 40px;
+}
+
+.wrapper .form-box.login {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper.active .form-box.login {
+    transition: none;
+    transform: translateX(-400px);
+}
+
+.wrapper .form-box.register {
+    position: absolute;
+    transition: none;
+    transform: translateX(400px);
+}
+
+.wrapper.active .form-box.register {
+    transition: transform .18s ease;
+    transform: translateX(0);
+}
+
+.wrapper .icon-close {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 45px;
+    height: 45px;
+    background: white;
+    font-size: 2em;
+    color: #162938;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-bottom-left-radius: 20px;
+    cursor: pointer;
+    z-index: 1;
+}
+
+.form-box h2 {
+    font-size: 2em;
+    color: white;
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    border-bottom: 2px solid white;
+    margin: 30px 0;
+}
+
+.input-box label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    font-size: 1em;
+    color: white;
+    font-weight: 500;
+    pointer-events: none;
+    transition: .5s;
+}
+
+.input-box input:focus~label,
+.input-box input:valid~label {
+    top: -5px;
+
+}
+
+.input-box input {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    font-size: 1em;
+    color: white;
+    font-weight: 600;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 8px;
+    font-size: 1.2em;
+    color: white;
+    line-height: 57px;
+}
+
+.remember-forgot {
+    font-size: .9em;
+    color: white;
+    font-weight: 500;
+    margin: -15px 0 15px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.remember-forgot label input {
+    accent-color: white;
+    margin-right: 3px;
+}
+
+.remember-forgot a {
+    color: white;
+    text-decoration: none;
+}
+
+.remember-forgot a:hover {
+    text-decoration: underline;
+
+}
+
+.b-login-btn {
+    width: 100%;
+    height: 45px;
+    background: white;
+    border: none;
+    outline: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    color: #162938;
+    font-weight: 500;
+}
+
+.login-register {
+    font-size: .9em;
+    color: white;
+    text-align: center;
+    font-weight: 500;
+    margin: 25px 0 10px;
+}
+
+.login-register p a {
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.login-register p a:hover {
+    text-decoration: underline;
+}
+
+.register-link {
+    margin-left: 5px;
+}
+
+/*INI CONTENT*/
+
+.container {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 150px;
+}
+
+.main-content {
+    display: grid;
+    justify-content: center;
+    margin-top: 70px;
+}
+
+.main-content h1 {
+    color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 100px;
+    overflow: hidden;
+    /* Ensures the content is not revealed until the animation */
+    border-right: 5px solid black;
+    /* The typwriter cursor */
+    white-space: nowrap;
+    /* Keeps the content on a single line */
+    margin: 0 auto;
+    /* Gives that scrolling effect as the typing happens */
+    letter-spacing: 0;
+    /* Adjust as needed */
+    animation:
+        typing 5s steps(100, end),
+        blink-caret .20s
+}
+
+.main-content p {
+    padding: 0;
+    margin: 0;
+    margin-top: 10px;
+    font-size: 20px;
+    color: white;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.a-container {
+    margin: 250px 50px 100px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.a-content {
+    color: white;
+    width: 45%;
+    text-align: left;
+}
+
+.a-content h1 {
+    font-size: 50px;
+}
+
+.a-content p {
+    text-align: left;
+}
+
+.b-container {
+    margin: 250px 50px 100px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.b-content {
+    color: white;
+    width: 45%;
+    text-align: right;
+}
+
+.b-content h1 {
+    text-align: right;
+    justify-content: right;
+    font-size: 50px;
+}
+
+.b-content p {
+    text-align: right;
+}
+
+.a.content a {
+    color: white;
+}
+
+.xbtn {
+    margin-top: 20px;
+    width: 130px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid white;
+    outline: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-size: 1.1em;
+    color: white;
+    font-weight: 500;
+    transition: .5s;
+}
+
+.xbtn:hover {
+    background: white;
+    color: #0d0124;
+}
+
+/*Responsive*/
+@media only screen and (max-width: 1320px) {
+    header {
+        padding: 0 50px;
+        width: 100%;
+    }
+
+    .main-content p {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 1100px) {
+    header {
+        padding: 0 30px;
+        width: 100%;
+    }
+
+    .main-content p {
+        width: 500px;
+    }
+}
+
+@media only screen and (max-width: 900px) {
+
+    header {
+        width: 100%;
+        position: absolute;
+    }
+
+    .logo {
+        margin-top: 4px;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background: white;
+        margin: 6px 0;
+    }
+
+    .navigation {
+        display: block;
+        justify-content: left;
+        align-items: center;
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #162938;
+        transition: 0.2s;
+        overflow: hidden;
+    }
+
+    .navigation.active {
+        display: block;
+        justify-content: left;
+        align-items: center;
+        height: 300px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #162938;
+        transition: 0.2s;
+        overflow: hidden;
+    }
+
+    .a-navbar {
+        justify-content: center;
+        align-items: center;
+        display: grid;
+    }
+
+    .a-navbar ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navigation .item {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: -40px;
+        text-align: center;
+        opacity: 0;
+    }
+
+    .navigation .loginbtn {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: -40px;
+        margin-right: 40px;
+        text-align: center;
+        opacity: 0;
+    }
+
+    .navigation.active ul {
+        margin-top: 50px;
+    }
+
+    .navigation.active ul .item {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: 11px;
+        margin-top: 20px;
+        text-align: center;
+        opacity: 1;
+    }
+
+    .navigation.active .loginbtn {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: 11px;
+        margin-top: 30px;
+        text-align: center;
+        opacity: 1;
+    }
+
+    .wrapper.active {
+        width: 380px;
+    }
+
+    .main-content h1 {
+        font-size: 150px;
+    }
+
+    .main-content p {
+        font-size: 20px;
+        width: 500px;
+    }
+
+    .a-container {
+        position: relative;
+    }
+
+    .a-container img {
+        width: 400px;
+        height: 400px;
+        right: -3rem;
+        bottom: -50px;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .b-container {
+        position: relative;
+    }
+
+    .b-container img {
+        left: -8rem;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .b-content {
+        position: absolute;
+        z-index: 1;
+        left: 23rem;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+
+    header {
+        width: 100%;
+        position: absolute;
+    }
+
+    .logo {
+        margin-top: 4px;
+    }
+
+    .hamburger {
+        display: block;
+        cursor: pointer;
+    }
+
+    .hamburger .line {
+        width: 30px;
+        height: 3px;
+        background: white;
+        margin: 6px 0;
+    }
+
+    .navigation {
+        display: block;
+        justify-content: left;
+        align-items: center;
+        height: 0;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100%;
+        background: #162938;
+        transition: 0.2s;
+        overflow: hidden;
+    }
+
+    .navigation.active {
+        display: block;
+        justify-content: left;
+        align-items: center;
+        height: 300px;
+        position: absolute;
+        top: 80px;
+        left: 0;
+        right: 0;
+        width: 100vw;
+        background: #162938;
+        transition: 0.2s;
+        overflow: hidden;
+    }
+
+    .a-navbar {
+        justify-content: center;
+        align-items: center;
+        display: grid;
+    }
+
+    .a-navbar ul {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .navigation .item {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: -40px;
+        text-align: center;
+        opacity: 0;
+    }
+
+    .navigation .loginbtn {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: -40px;
+        margin-right: 40px;
+        text-align: center;
+        opacity: 0;
+    }
+
+    .navigation.active ul {
+        margin-top: 50px;
+    }
+
+    .navigation.active ul .item {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: 11px;
+        margin-top: 20px;
+        text-align: center;
+        opacity: 1;
+    }
+
+    .navigation.active .loginbtn {
+        display: block;
+        justify-content: center;
+        align-items: center;
+        margin-left: 11px;
+        margin-top: 30px;
+        text-align: center;
+        opacity: 1;
+    }
+
+    .wrapper.active {
+        width: 380px;
+    }
+
+    .container {
+        margin-bottom: 200px;
+    }
+
+    .main-content h1 {
+        font-size: 60px;
+    }
+
+    .main-content p {
+        font-size: 15px;
+        width: 200px;
+    }
+
+    .a-container {
+        position: relative;
+    }
+
+    .a-container h1 {
+        font-size: 30px;
+    }
+
+    .a-container img {
+        width: 300px;
+        height: 300px;
+        left: 20px;
+        bottom: -10px;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .b-container {
+        position: relative;
+    }
+
+    .b-container img {
+        left: -30px;
+        width: 300px;
+        height: 300px;
+        position: absolute;
+        z-index: -1;
+    }
+
+    .b-content h1 {
+        font-size: 30px;
+    }
+
+    .b-content {
+        right: -20px;
+        position: absolute;
+        z-index: 1;
+    }
+
+    .xbtn {
+        width: fit-content;
+    }
+}
+
+/* The typing effect */
+@keyframes typing {
+    from {
+        width: 0
+    }
+
+    to {
+        width: 100%
+    }
+}
+
+/* The typewriter cursor effect */
+@keyframes blink-caret {
+
+    from,
+    to {
+        border-color: transparent
+    }
+
+    50% {
+        border-color: transparent
+    }
+}

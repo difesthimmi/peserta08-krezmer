@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kuis Start</title>
+    <link rel="stylesheet" href="/css/quiz.css">
+</head>
+
+<body>
+
+    <header>
+        <a href="index.html" class="logo">
+            <img src="/assets/logo.png" alt="logo" width="170px" height="80px">
+        </a>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <nav class="navigation">
+            <ul>
+                <li>
+                    <a href="index.html" class="item">Beranda</a>
+                    <a href="task.html" class="item">Managemen Tugas</a>
+                    <a href="#" class="item">Kuis</a>
+                    <a href="login.html" class="loginbtn">
+                        <button class="btnLogin-popup">Login</button>
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="q-wrapper">
+        <div class="quiz">
+            <div class="quiz-header">
+                <div class="quiz-user">
+                    <h4>Welcome <span class="name"></span> !</h4>
+                    <p>Kerjakan quiz berikut dengan jujur ya!</p>
+                </div>
+            </div>
+            <div class="quiz-body">
+                <div id="questions" class="quiztanya">
+                    <!-- <ul class="option-group">
+                    <li class="option">option 1</li>
+                    <li class="option">option 2</li>
+                    <li class="option">option 3</li>
+                    <li class="option">option 4</li>    
+                    </ul>
+                    -->
+                </div>
+                <button class="btn-next" onclick="next()">Next Question</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="/javascripts/quiz.js"></script>
+    <script src="/javascripts/userinfo.js"></script>
+</body>
+
+</html>

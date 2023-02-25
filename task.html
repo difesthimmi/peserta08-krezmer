@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Task</title>
+	<link rel="stylesheet" href="/css/task.css">
+	<script src="https://code.jquery.com/jquery-3.6.3.slim.min.js"
+		integrity="sha256-ZwqZIVdD3iXNyGHbSYdsmWP//UBokj2FHAxKuSBKDSo=" crossorigin="anonymous"></script>
+</head>
+
+<body>
+
+	<header>
+		<a href="index.html" class="logo">
+			<img src="/assets/logo.png" alt="logo" width="170px" height="80px">
+		</a>
+		<div class="hamburger">
+			<div class="line"></div>
+			<div class="line"></div>
+			<div class="line"></div>
+		</div>
+		<nav class="navigation">
+			<ul>
+				<li>
+					<a href="index.html" class="item">Beranda</a>
+					<a href="task.html" class="item">Managemen Tugas</a>
+					<a href="kuis.html" class="item">Kuis</a>
+					<a href="login.html" class="loginbtn">
+						<button class="btnLogin-popup">Login</button>
+					</a>
+				</li>
+			</ul>
+		</nav>
+	</header>
+
+
+
+	<div class="task-container">
+		<div class="content">
+			<div class="c-header">
+				<div class="task-new">
+					<button class="create">Buat Tugas</button>
+				</div>
+				<div class="task-hapus">
+					<button class="delete" title="Click to delete all task">Geser kesini untuk menghapus</button>
+				</div>
+			</div>
+			<div class="todo">
+				<h3>To Do</h3>
+				<div class="box">
+				</div>
+			</div>
+			<div class="progress">
+				<h3>Progress</h3>
+				<div class="box">
+				</div>
+			</div>
+			<div class="finish">
+				<h3>Finished</h3>
+				<div class="box">
+				</div>
+			</div>
+		</div>
+
+		<script src="/javascripts/task.js"></script>
+		<script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+		<script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
+</body>
+
+</html>
